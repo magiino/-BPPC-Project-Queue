@@ -1,0 +1,173 @@
+// GraphViz picture: CHashMap with one six pairs {0,'A'}, {1,'B'}, {1,'C'}, {3,'D'}, {5,'E'}, {11,'F'}, by: Pety 2017
+// $Id: CHashMap.gv 2 2017-11-06 10:01:25Z petyovsky $
+
+digraph CHashMapPrimitive
+	{
+	rankdir = "LR";
+	node
+		[
+		shape = "record",
+		fontname = "Courier",
+		style = "filled"
+		];
+
+	inputkey
+		[
+		label = "key",
+		shape = "plaintext",
+		style = "solid",
+		tooltip = "input key",
+		];
+
+	HashFunc
+		[
+		shape = "ellipse",
+		label = "HashFunction(key)",
+		tooltip = "Calculate index to Bucket Table",
+		URL = "\ref CHashMap::CalculateHash"
+		];
+
+	TBucket
+		[
+		label = "<Name> iBucketTable | 
+			{<Index0> [0] | {<Head0> iHead | <Tail0> iTail} } | \
+			{<Index1> [1] | {<Head1> iHead | <Tail1> iTail} } | \
+			{<Index2> [2] | {<Head2> iHead | <Tail2> iTail} } | \
+			{<Index3> [3] | {<Head3> iHead | <Tail3> iTail} } ",
+		tooltip = "Bucket array where each indexes associated with owned linked list",
+		URL = "\ref CHashMap::iBucketTable"
+		];
+
+	inputkey -> HashFunc
+		[color = "cyan"];
+	HashFunc -> TBucket:Index0
+		[color = "green", fontname = "Courier", label = "idx"];
+	HashFunc -> TBucket:Index1
+		[color = "green", fontname = "Courier", label = "idx"];
+	HashFunc -> TBucket:Index2
+		[color = "green", fontname = "Courier", label = "idx"];
+	HashFunc -> TBucket:Index3
+		[color = "green", fontname = "Courier", label = "idx"];
+
+	subgraph cluster_linked_list0
+		{
+		style = "invis";
+
+		TItem00
+			[
+			label = "<Name> TItem#0 | (#0, 'A') | <Next> iNext",
+			tooltip = "One item of single linked list of TItems",
+			URL = "\ref CHashMap::TItem"
+			];
+
+		nullptr0
+			[
+			label = "nullptr",
+			shape = "plaintext",
+			URL="https://www.youtube.com/watch?v=7De-UU9qB9Q"
+			];
+
+		TItem00:Next -> nullptr0
+			[color = "magenta"];
+		}
+
+	subgraph cluster_linked_list1
+		{
+		style = "invis";
+
+		TItem10
+			[
+			label = "<Name> TItem#1 | (#1, 'B') | <Next> iNext",
+			tooltip = "One item of single linked list of TItems",
+			URL = "\ref CHashMap::TItem"
+			];
+
+		TItem11
+			[
+			label = "<Name> TItem#2 | (#1, 'C') | <Next> iNext",
+			tooltip = "One item of single linked list of TItems",
+			URL = "\ref CHashMap::TItem"
+			];
+
+		TItem12
+			[
+			label = "<Name> TItem#4 | (#5, 'E') | <Next> iNext",
+			tooltip = "One item of single linked list of TItems",
+			URL = "\ref CHashMap::TItem"
+			];
+
+		nullptr1
+			[
+			label = "nullptr",
+			shape = "plaintext",
+			URL="https://www.youtube.com/watch?v=mMgVqQ1TGeU&feature=youtu.be&t=25"
+			];
+
+		TItem10:Next -> TItem11:Name
+			[color = "magenta"];
+		TItem11:Next -> TItem12:Name
+			[color = "magenta"];
+		TItem12:Next -> nullptr1
+			[color = "magenta"];
+		}
+
+	subgraph cluster_linked_list2
+		{
+		style = "invis";
+
+		nullptr2
+			[
+			label = "nullptr",
+			shape = "plaintext",
+			URL="https://www.youtube.com/watch?v=SqJ8amSQPUg"
+			];
+		}
+
+	subgraph cluster_linked_list3
+		{
+		style = "invis";
+
+		TItem30
+			[
+			label = "<Name> TItem#3 | (#3, 'D') | <Next> iNext",
+			tooltip = "One item of single linked list of TItems",
+			URL = "\ref CHashMap::TItem"
+			];
+
+		TItem31
+			[
+			label = "<Name> TItem#5 | (#11, 'F') | <Next> iNext",
+			tooltip = "One item of single linked list of TItems",
+			URL = "\ref CHashMap::TItem"
+			];
+
+		nullptr3
+			[
+			label = "nullptr",
+			shape = "plaintext",
+			URL="https://www.youtube.com/watch?v=8Ku61ArIVAo"
+			];
+
+		TItem30:Next -> TItem31:Name
+			[color = "magenta"];
+		TItem31:Next -> nullptr3
+			[color = "magenta"];
+		}
+
+	TBucket:Head0 -> TItem00:Name
+		[color = "red"];
+	TBucket:Tail0 -> TItem00:Name
+		[color = "blue"];
+	TBucket:Head1 -> TItem10:Name
+		[color = "red"];
+	TBucket:Tail1 -> TItem12:Name
+		[color = "blue"];
+	TBucket:Head2 -> nullptr2
+		[color = "red"];
+	TBucket:Tail2 -> nullptr2
+		[color = "blue"];
+	TBucket:Head3 -> TItem30:Name
+		[color = "red"];
+	TBucket:Tail3 -> TItem31:Name
+		[color = "blue"];
+	}

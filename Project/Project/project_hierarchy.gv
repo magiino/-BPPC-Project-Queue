@@ -1,0 +1,65 @@
+// GraphViz picture: Project's files hierarchy by: Pety 2017
+// $Id: project_hierarchy.gv 1752 2017-12-11 15:14:59Z xkunaj01 $
+
+digraph ProjectHierarchy
+	{
+	graph[size="11,11"];
+	rankdir="RL";
+	node[color="gray25", fontname="Helvetica", shape="Mrecord", style="solid"];
+		top[label="BPPC project 2017", URL="\ref index"];
+
+	node[color="lightblue2", fontname="Helvetica", shape="Mrecord", style="solid"];
+		ClassInfo[label="ClassInfo.h", tooltip="ClassInfo class template"];
+		check[label="check.h\lcheck.cpp", tooltip="Checker tool"];
+
+	node[color="green", fontname="Helvetica", shape="Mrecord", style="dashed"];
+		Doxygen[label="Doxygen\ndocumentation", tooltip="Doxygen documentation", URL="\ref doc"];
+
+	node[color="goldenrod2", fontname="Helvetica-Bold", shape="none", style="solid"];
+		CFronta[label="CFronta.h\lCFronta.cpp", tooltip="CFronta class", URL="\ref CFronta.h"];
+
+	node[color="goldenrod2", fontname="Helvetica-Bold", shape="none", style="solid"];
+		CValue_long[label="CValue_long.h \lCValue_long.cpp ", tooltip="CValue_long class", URL="\ref CValue_long.h"];
+		CValue_TStudent[label="CValue_TStudent.h\lCValue_TStudent.cpp", tooltip="CValue_TStudent class", URL="\ref CValue_TStudent.h"];
+
+	node[color="goldenrod2", fontname="Helvetica", shape="Mrecord", style="dashed"];
+		main[label="main.cpp", URL="\ref main.cpp"];
+		CHashMap[label="CHashMap.h\lCHashMap.cpp", tooltip="CHashMap class", URL="\ref CHashMap.h"];
+		CPair[label="CPair.h\lCPair.cpp", tooltip="CPair class", URL="\ref CPair.h"];
+		CValue[label="CValue.h", URL="\ref CValue.h"];
+
+	node[color="goldenrod2", fontname="Helvetica", shape="Mrecord", style="solid"];
+		CValue_bool[label="CValue_bool.h", tooltip="CValue_bool class", URL="\ref CValue_bool.h"];
+		CValue_TWeekDay[label="CValue_TWeekDay.h \lCValue_TWeekDay.cpp", tooltip="CValue_TWeekDay class", URL="\ref CValue_TWeekDay.h"];
+
+	Doxygen -> top [color="green"];
+
+	edge[color="goldenrod2"];
+		main -> top;
+		CFronta -> main;
+		CHashMap -> CFronta;
+		
+		CPair -> CHashMap;
+		CValue -> CPair;
+
+		CValue_bool -> CValue;
+		CValue_TWeekDay -> CValue;
+		CValue_long -> CValue;
+		CValue_TStudent -> CValue;
+
+	edge[color="lightblue2" style="dashed"];
+		check -> main;
+		check -> CFronta;
+		check -> CHashMap;
+    check -> CValue;
+
+		ClassInfo -> main;
+		ClassInfo -> CFronta;
+		ClassInfo -> CHashMap;
+		ClassInfo -> CPair;
+    ClassInfo -> CValue_bool;
+		ClassInfo -> CValue_TWeekDay;
+		ClassInfo -> CValue_long;
+		ClassInfo -> CValue_TStudent;
+
+	}

@@ -1,0 +1,256 @@
+~\newline
+ \tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Projekt B\+P\+PC }&\textbf{ 2017 }&\textbf{ Hodnocení zadání, C\+Value(max 10b) }&\textbf{ Hodnocení hlavička max(10b) }&\textbf{ Hodnocení projektu max(20b)  }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Projekt B\+P\+PC }&\textbf{ 2017 }&\textbf{ Hodnocení zadání, C\+Value(max 10b) }&\textbf{ Hodnocení hlavička max(10b) }&\textbf{ Hodnocení projektu max(20b)  }\\\cline{1-5}
+\endhead
+Autor 1\+: &{\ttfamily 186135}, {\bfseries Magáth} Marek, {\ttfamily \href{mailto:xmagat01@feec.vutbr.cz}{\tt xmagat01@feec.\+vutbr.\+cz}} &8 &6,5 Znacna cast tohoto souboru je opisem jineho projektu. Kontaktujte cviciciho. Pracujte samostatne. Pokud se to bude opakovat, budete mit z celeho projektu nulu!!! &\\\cline{1-5}
+Autor 2\+: &{\ttfamily 186125}, {\bfseries Kuna} Ján, {\ttfamily \href{mailto:xkunaj01@feec.vutbr.cz}{\tt xkunaj01@feec.\+vutbr.\+cz}} &8 &6,5 Znacna cast tohoto souboru je opisem jineho projektu. Kontaktujte cviciciho. Pracujte samostatne. Pokud se to bude opakovat, budete mit z celeho projektu nulu!!! &\\\cline{1-5}
+Autor 3\+: &{\ttfamily 173688}, {\bfseries Levrinc} Adam, {\ttfamily \href{mailto:xlevri01@feec.vutbr.cz}{\tt xlevri01@feec.\+vutbr.\+cz}} &8 &6,5 Znacna cast tohoto souboru je opisem jineho projektu. Kontaktujte cviciciho. Pracujte samostatne. Pokud se to bude opakovat, budete mit z celeho projektu nulu!!! &\\\cline{1-5}
+Autor 4\+: &{\ttfamily ID}, {\bfseries Příjmení} Jméno, {\ttfamily login/email} &&&\\\cline{1-5}
+Datum zadání\+: &23.\+10.\+2017 &&&\\\cline{1-5}
+Datum finálního odevzdání\+: &13.\+12.\+2017 (včetně) &&&\\\cline{1-5}
+\end{longtabu}
+~\newline
+~\newline
+\begin{DoxyRefDesc}{Bugfix}
+\item[\hyperlink{bugfix__bugfix000011}{Bugfix}]\mbox{[}Zad\mbox{]} sledovat warningy doxygen. //odstranene vsetky warningy doxygen \end{DoxyRefDesc}
+
+
+\subsection*{Úvodní poznámky}
+
+V následujícím textu je vzor zadání. Tučně jsou označeny prvky, které se mohou lišit obsahem, ale které platí obecně pro třídu kontejner. Tyto pasáže je nutné nahradit upraveným významem pro konkrétní kontejner (vámi upravené části zůstanou zvýrazněny). Čím více tučných položek využijete, tím více vlastností si osvojíte a tím hodnotnější program bude. V tomto okamžiku nás nezajímá implementace, (tedy konkrétní realizace -\/ názvy proměnných a jak uvnitř fungují jednotlivé metody), pouze u metod a operátorů vždy slovně popište, jak si představujete jejich činnost. Činnost popište tak, aby byla dostatečná = jak byste ji zadali externímu programátorovi, aby jasně věděl jak se má metoda/funkce chovat. U metod a operátorů bude tedy uveden\+: název, popis činnosti, použití, smyslu a významu funkce (anotace/synopsis) -\/ která se později stane součástí komentáře/helpu ve zdrojovém textu (Doxygen).
+
+U každé metody/funkce uveďte monogram jednoho z autorů, který daný kód bude realizovat. Každý student by měl realizovat část každého bodu zadání (pokud to zadání umožňuje).
+
+Uvedené poznámky (Note) v odevzdávaném zadání nebudou, slouží pouze jako doporučení a upřesnění. U některých variant zadání kontejneru mohou nastat problémy s tím, že daná vlastnost (metoda) kontejneru nemá {\itshape \char`\"{}nejlogičtější\char`\"{}} využití – zkuste si nějaké (byť méně logické) využití vymyslet (z hlediska programátorské praxe je to samozřejmě špatně, protože metody by měly být logické a snadno chápatelné, ale my zde dáme prioritu procvičení, výuce a použití daného typu metod). Každý z autorů by měl napsat alespoň jednu metodu příp. operátor daného typu.
+
+Vývoj projektu je možný v libovolném prostředí a kompilátoru C++ (\href{http://gcc.gnu.org/}{\tt g++}, \href{http://clang.llvm.org/}{\tt clang++}, \href{https://developer.apple.com/xcode/download/}{\tt X\+Code}), ale referenčním překladačem bude \href{http://www.visualstudio.com/}{\tt Microsoft Visual Studio Professional 2017}.
+
+~\newline
+~\newline
+
+
+\subsection*{Zadání}
+
+\subsubsection*{Popis datové struktury a výběr datových typů pro realizaci projektu}
+
+V rámci projektu se bude tvořit objektová knihovna zajišťující kontejnerové funkce pro prvky nesoucí hodnotu zvoleného typu. Vnitřní implementace kontejneru bude realizována jako tzv. \href{https://en.wikipedia.org/wiki/Hash_table}{\tt Hash\+Map (Hash\+Table)} tj. seznam prvků s klíči a hodnotami. Tato datová struktura umožňuje časově efektivní vyhledávání, odebíraní a vyhledávání prvků. {\itshape Snažte se tedy realizovat paměťově i časově úspornou implementaci kontejneru!} Prvky vkládané do datové struktury {\ttfamily \hyperlink{class_c_hash_map}{C\+Hash\+Map}} budou instance třídy {\ttfamily C\+Value}.
+
+Třída {\ttfamily C\+Value} bude prvkem kontejneru. Ve výsledném projektu bude vytvořený kontejner schopen pracovat minimálně se čtyřmi různými implementacemi třídy {\ttfamily C\+Value}. První dvě třídy {\ttfamily C\+Value} Vám již byly dodány v rámci zadání a realizují zapouzdření typu {\ttfamily bool} a výčtového typu {\ttfamily T\+Week\+Day} a je v rámci řešení projektu zakázána jejich modifikace. Podle těchto příkladů v rámci projektu vytvoříte dvě další třídy {\ttfamily C\+Value}.
+
+Třídy {\ttfamily \hyperlink{class_c_hash_map}{C\+Hash\+Map}} a pomocná třída {\ttfamily \hyperlink{class_c_pair}{C\+Pair}} budou dodány v rozpracované podobě a v rámci projektu bude nutné je dopracovat (doplnit jejich funkčnost). Struktury {\ttfamily T\+Item} a {\ttfamily \hyperlink{class_c_pair}{C\+Pair}} budou sloužit jako pomocné pro realizaci třídy {\ttfamily \hyperlink{class_c_hash_map}{C\+Hash\+Map}}. Struktura {\ttfamily T\+Item} bude sloužit jako prvek pro tvorbu vázaného seznamu, jehož datovou složku bude tvořit prvek třídy {\ttfamily \hyperlink{class_c_pair}{C\+Pair}}. Tento prvek bude obsahovat klíč a hodnotu. Hodnota bude reprezentována pomocí třídy {\ttfamily C\+Value}. Pomocné třídy budou nedílnou součástí projektu ale v dalším budeme zmiňovat pouze {\ttfamily C\+Value}.
+
+\begin{DoxyAttention}{Attention}
+Kontejner budete realizovat bez podpory kontejnerových typů knihovny S\+TL nebo jiných knihoven třetích stran. Prvky kontejneru bude realizován pomocí seznamu typu {\ttfamily \hyperlink{class_c_hash_map}{C\+Hash\+Map}} a jeho prvky budou instance třídy {\ttfamily C\+Value}. Kontejner bude realizován tak, aby uvnitř umožňoval práci s Hash\+Map seznamy obecného rozměru. Realizace kontejneru jako Hash\+Map seznamu nebude degenerována na realizaci pomocí pouhého lineárního spojového seznamu. Kontejner musí správně pracovat pro všechny čtyři vytvořené třídy {\ttfamily C\+Value}, ale nemusí s nimi pracovat současně v rámci jednoho překladu.~\newline
+{\itshape Pozor! Nedodržení těchto podmínek znamená nesplnění základních požadavků zadání a hodnocení takového projektu bude bohužel 0 bodů!!!}
+\end{DoxyAttention}
+
+
+
+
+~\newline
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]V následujících třech částech ponechejte v seznamu vždy pouze ty položky, které odpovídají Vašemu zadání projektu.\end{DoxyRefDesc}
+
+
+Místo všech názvů {\bfseries  {\ttfamily \hyperlink{class_c_container}{C\+Container}}} uveďte název kontejneru zvoleného v části zadání číslo 3 První Vámi realizovaná třída {\ttfamily \hyperlink{namespace_c_value__long}{C\+Value\+\_\+long}} bude zapouzdřovat jeden ze základních typů, který si zvolte v části 1\+:
+
+{\itshape Zadání část 1\+: základní datové typy (mimo bool), (zvolte jednu z možností)\+:}
+\begin{DoxyItemize}
+\item Jeden z {\bfseries celočíselných typů}\+: {\ttfamily long} \begin{DoxyNote}{Note}
+-\/ Jeden z {\bfseries reálných typů}\+: např.\+: {\ttfamily float}, {\ttfamily double}, {\ttfamily long} {\ttfamily double} 
+
+-\/ {\bfseries Výčtový typ enum} např.\+: (měsíce, výčet barev, znak Morseovy abecedy, znamení zvěrokruhu)
+\end{DoxyNote}
+Druhá Vámi realizovaná třída {\ttfamily \hyperlink{namespace_c_value___t_student}{C\+Value\+\_\+\+T\+Student}} bude zapouzdřovat jeden ze složených datových typů, který si zvolte v části 2\+:
+\end{DoxyItemize}
+
+{\itshape Zadání část 2\+: složené datové typy (struktury, pole) (mimo T\+Week\+Day -\/ Dny v týdnu), (zvolte jednu z možností)\+:}
+\begin{DoxyItemize}
+\item {\bfseries Libovolný další} \+: T\+Student (jméno a příjmení, V\+UT ID) \begin{DoxyNote}{Note}
+-\/ {\bfseries Komplexní číslo} 
+
+-\/ {\bfseries Textový řetězec} (dynamický) 
+
+-\/ {\bfseries Bod v prostoru} (x,y,z) 
+
+-\/ {\bfseries Číselný interval} $<$min,max$>$ 
+
+-\/ {\bfseries Barevná informace} (R\+GB složky) 
+
+-\/ {\bfseries Pole číselných hodnot} typu {\ttfamily double} 
+\end{DoxyNote}
+Třetí Vámi realizovaná třída bude samotný kontejner pracující s prvky třídy {\ttfamily C\+Value}. Charakter a funkci kontejneru si zvolte v části 3\+:
+\end{DoxyItemize}
+
+{\itshape Zadání část 3\+: typ kontejneru implementován pomocí Hash\+Map seznamu (zvolte jednu z možností)\+:}
+\begin{DoxyItemize}
+\item {\bfseries Fronta} – jeden vstup, jeden výstup, architektura F\+I\+FO. Poradie prvkov na výstupe je zhodné s poradím prvkov na vstupe (všetky prvky majú rovnakú prioritu). \begin{DoxyRefDesc}{Bugfix}
+\item[\hyperlink{bugfix__bugfix000012}{Bugfix}]\mbox{[}Zad\mbox{]} Jak se uplatni klič? // podla kluca vieme v akom poradi sme vkladali prvky\end{DoxyRefDesc}
+
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+-\/ {\bfseries Prioritní fronta} – jeden vstup, jeden výstup, architektura F\+I\+FO. Prvky vstupují do fronty vždy dodatečnou s informací o své prioritě, prvky vystupují z fronty v pořadí určeném prioritou a při stejné prioritě je pořadí prvků na výstupu shodné s pořadím prvků na vstupu. 
+
+-\/ {\bfseries Prioritní zásobník} – jeden vstup, jeden výstup, architektura L\+I\+FO. Prvky vstupují do fronty vždy dodatečnou s informací o své prioritě, prvky vystupují z fronty na základě své priority a při výskytu prvku se stejnou prioritou je pořadí prvků na výstupu opačné o proti pořadí prvků na vstupu. 
+
+-\/ {\bfseries Množina} – souhrn (kolekce) prvků, neumožňuje indexaci jednotlivých prvků, prvky stejné hodnoty se nemohou v množině opakovat. Mezi definované operace patří tzv. řezy. (tj. vznik nové množiny obsahující všechny prvky původní množiny, které jsou menší (resp. větší) než zadaná hodnota). 
+
+-\/ {\bfseries Multimnožina} -\/ (totéž co množina, navíc může obsahovat více prvků stejné hodnoty) – tj. hodnoty prvků se mohou opakovat, zajistěte efektivní využití paměti (neduplikujte fyzicky v seznamu prvky stejné hodnoty). 
+
+-\/ {\bfseries Asociativní pole} – pole prvků typu {\ttfamily C\+Value} umožňující indexaci hodnotou typu {\ttfamily int}. Asociativní pole předpokládá, že indexy jednotlivých vložených prvků nemusí tvořit spojitou řadu (tj. asociativní pole je pole prvků, který nemusí obsahovat všechny indexy v daném rozsahu posloupnosti). 
+
+-\/ {\bfseries Mapa} -\/ představuje seznam hodnot typu {\ttfamily int} a umožňuje indexaci těchto prvků pomocí hodnoty typu {\ttfamily C\+Value}. Bude obsahovat metody pro vložení a odebrání prvku. Pro jednu konkrétní hodnotu indexu existuje vždy pouze jedna hodnota typu {\ttfamily int}. 
+
+-\/ {\bfseries Multimapa} -\/ (totéž co mapa, navíc může obsahovat pro jeden index typu {\ttfamily C\+Value} obecně více prvků s různou hodnotou) – tj. pro jednu konkrétní hodnotu indexu může existovat několik hodnot typu {\ttfamily int}.
+\end{DoxyNote}
+
+
+
+
+~\newline
+\subsubsection*{Vzorový text zadání\+:}
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]Místo všech názvů {\bfseries  {\ttfamily \hyperlink{class_c_container}{C\+Container}}} uveďte název kontejneru zvoleného v části zadání číslo 3\end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]Od tohoto místa dále (včetně obrázku) nahraďte tučně zapsané texty vhodnou modifikací pro Vaše zadání (značky pro zvýraznění bold neodstraňujte). Nezvýrazněný text nemažte -\/ jedná se o povinné body zadání!!! Dále viz úvodní poznámky.\end{DoxyRefDesc}
+
+
+Navrhněte třídu {\ttfamily {\bfseries \hyperlink{class_c_fronta}{C\+Fronta}}}, která bude obsahovat prvky třídy {\ttfamily C\+Value} a realizovat knihovnu pro práci s vybraným jednoduchým typem ({\bfseries long}) a složeným datovým typem ({\bfseries T\+Student}), který bude zapouzdřen ve třídě {\ttfamily C\+Value}. Třída {\ttfamily C\+Value} (společně s dalšími pomocnými datovými typy) je připravena pro práci s Hash\+Map seznamem a její využití při tvorbě fronty je povinnou součástí projektu. Celá knihovna bude realizovat činnost {\bfseries fronty} podle následujících bodů. Pokud je to možné, bude splňovat očekávané chování (podobné jako u jednoduchých typů\+: {\ttfamily int}, {\ttfamily float}, ...). Navržená třída {\bfseries \hyperlink{class_c_fronta}{C\+Fronta}} umožní že\+:
+
+
+\begin{DoxyEnumerate}
+\item Třída {\ttfamily C\+Value} zapouzdřuje dva dodané ({\ttfamily bool}, {\ttfamily T\+Week\+Day}) a dva datové typy\+: jeden základní\+: {\bfseries long} a druhý složený\+: {\bfseries T\+Student}. Zložený typ T\+Student je štruktúra (definícia struct) a obsahuje nasledujúce prvky\+: i\+First\+Name, i\+Last\+Name, i\+Vut\+ID. Tyto definované třídy budou vytvořeny ve svých jmenných prostorech\+: {\bfseries \hyperlink{namespace_c_value__long}{C\+Value\+\_\+long}, \hyperlink{namespace_c_value___t_student}{C\+Value\+\_\+\+T\+Student}}. \begin{DoxyNote}{Note}
+Zde uveďte za N\+A\+Z\+E\+V\+\_\+\+T\+Y\+PU typy zvolené pro třídy z části zadání č.1 a č.2. 
+
+Pro oba nové datové typy (z části zadání č.1 a č.2) uveďte, jaký typ budou zapouzdřovat (u výčtového typu definujte i jednotlivé názvy hodnot). Pro datový typ č.2 uveďte název nově definovaného složeného typu s informaci, zda půjde o definici\+: {\ttfamily typedef}, {\ttfamily struct}, {\ttfamily union}, {\ttfamily class}.
+\end{DoxyNote}
+
+\item Vznik objektu třídy {\ttfamily {\bfseries \hyperlink{class_c_fronta}{C\+Fronta}}}\+:
+\begin{DoxyItemize}
+\item implicitní konstruktor {\bfseries který nastaví atribúty jednoduchého dátoveho typu defaultné hodnoty, pre zložité dátové typy zavolá implicitný konštruktor zloženého dátoveho typu} \mbox{[}implementovať bude xkunaj01\mbox{]}
+\item (konverzní) konstruktor -\/ bude mat parameter C\+Value, vytvorí novú instanciu C\+Fronty, pridá do mapy prvý prvok \mbox{[}implementovať bude xkunaj01\mbox{]}
+\item kopykonstruktor -\/ vytvára novú instanciu, tým že skopíruje všetky prvky fronty \mbox{[}implementovať bude xlevri01\mbox{]}
+\item konstruktor z typu int z typu int (vytvářející seznam o daném počtu prvků C\+Value) \mbox{[}implementovať bude xlevri01\mbox{]}
+\item konstruktor z dvojice hodnot reprezentujících pole prvků C\+Value a počet prvků -\/ výsledný objekt se vytvoří tak, že bude pridávať prvky od indexu \mbox{[}0\mbox{]} po \mbox{[}size\mbox{]} \mbox{[}implementovať bude xmagat01\mbox{]}
+\item konstruktor na základě C řetězce (char $\ast$) \+\_\+\+\_\+ve kterém budou hodnoty jednotlivých C\+Value, oddelené čiarkami. Reťazec bude mať napríklad tvar C\+Value long \char`\"{}626565,6565655,322322\char`\"{} \mbox{[}implementovať bude xmagat01\mbox{]} \begin{DoxyNote}{Note}
+Celkem tedy – implicitní, kopykonstruktor, konverzní, konverzní z řetězce, s více parametry, ... – (minimální počet 6ks)
+\end{DoxyNote}
+
+\end{DoxyItemize}
+\item Počet vzniklých a aktuálních instancí třídy {\ttfamily {\bfseries \hyperlink{class_c_fronta}{C\+Fronta}}} bude možné sledovat za pomoci statických proměnných třídy a bude možné je získat voláním statických metod (třída {\ttfamily Class\+Info}). Každá instance třídy {\ttfamily {\bfseries \hyperlink{class_c_fronta}{C\+Fronta}}} bude obsahovat privátní atribut {\ttfamily i\+Instance\+Info} pomocné třídy {\ttfamily Class\+Info} sloužící k identifikaci instance (odpovídající pořadí vzniku). Identifikační hodnota instance musí být přístupná mimo třídu pomocí vhodné metody -\/ {\ttfamily I\+D()}.
+\item Zánik objektu -\/ destruktor {\bfseries C\+Fronty} bude implementován s mechanizmem odpočtu aktivních prvků pomocí pomocné třídy {\ttfamily Class\+Info}. Dynamické členské prvky {\bfseries odalokuje}.
+\item Budou implementovány operátory {\bfseries C\+Fronty} s příslušnými činnostmi\+:
+\begin{DoxyItemize}
+\item Unárne operátory \mbox{[}implementovať bude xkunaj01\mbox{]}
+\begin{DoxyItemize}
+\item operátor – prefix (-\/A), slúži na odobranie posledného prvku z fronty\begin{DoxyRefDesc}{Bugfix}
+\item[\hyperlink{bugfix__bugfix000013}{Bugfix}]\mbox{[}Zad\mbox{]} Jak je v hashmape definováno pořadí? Podobne dale -\/ posouvani pořadí ve frontě // vieme s akymi indexami tam vkladame prvky takze vieme ist aj po poradi// .\end{DoxyRefDesc}
+
+\item operátor ++ na koniec fronty vloží nový prvok ktorý je kópia prvku pred ním
+\item operátor -\/ -\/ odoberie posledný prvok z fronty
+\item operátor $\sim$ prehodi prvy prvok s posledným
+\end{DoxyItemize}
+\item Logické operátory (slúži pre porovnávanie počtu prvkov dvoch front) \mbox{[}implementovať bude xlevri01\mbox{]}
+\begin{DoxyItemize}
+\item operátor == vracia T\+R\+UE ak je rovnaký počet prvkov
+\item operátor != vracia T\+R\+UE ak nie je rovnaký počet prvkov
+\item operátor $>$ vracia T\+R\+UE ak je počet prvkov fronty pred operátorom vačší ako počet prvkov fronty za operátorom
+\item operátor $<$ vracia T\+R\+UE ak je počet prvkov fronty pred operátorom menší ako počet prvkov fronty za operátorom
+\end{DoxyItemize}
+\item Binárne operátory \mbox{[}implementovať bude xmagat01\mbox{]}
+\begin{DoxyItemize}
+\item operátor = jedná sa o priradenie, nevytvára sa žiadny nový objekt, prvky A sa prepíšu prvkami B (pri A=B)
+\item operátor += prvky z B priradí na koniec A, ostane to v pôvodnom objekte (objekt pred oprerátorom (A)) (pre A+=B)
+\item operátor + to isté čo +=, s rozdielom, že vracia nový objekt
+\item operátor -\/ prvky z B priradí pred prvky A, vracia nový objekt
+\item konverzny -\/ vracia true ak je pocet prkov v mape vacsi ako 0 inak vracia false \mbox{[}implementovať bude xmagat01\mbox{]}
+\item nečlensky -\/ prida Cvalue do fronty (C\+Value + \hyperlink{class_c_fronta}{C\+Fronta}) \mbox{[}implementovať bude xlevri01\mbox{]} \begin{DoxyNote}{Note}
+Celkem tedy – unárních (nejméně 3ks), binárních (nejméně 3ks), konverzní, nečlenský, logické (nejméně 3ks) – (celkem minimálně 12ks). U operátorů i metod z následujících bodů uveďte požadované informace (viz úvodní poznámky). {\itshape Zadání bude obsahovat definici zvolené operace (tedy například co se myslí pod termínem odečtení kontejnerů, jak se bude chovat k prvkům fronty, popřípadě ke kontejnerům prázdným)} 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Bugfix}
+\item[\hyperlink{bugfix__bugfix000014}{Bugfix}]\mbox{[}Zad\mbox{]} Chybi nečlenský a konverzni. // doplnene\end{DoxyRefDesc}
+
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item Standardní vstup a výstup z instance třídy {\ttfamily {\bfseries \hyperlink{class_c_fronta}{C\+Fronta}}} bude realizován pomocí streamů (realizovaný {\ttfamily friend} funkcí s využitím jejích vlastností) – přetížením operátorů $<$$<$ a $>$$>$ ve stejném formátu navrženém pro konstruktor z {\ttfamily char} $\ast$ (tj. {\bfseries čárkami oddělený seznam hodnot ... ve tvaru ...}).\mbox{[}implementovať bude xmagat01\mbox{]}
+\item Budou realizovány privátní a veřejné metody\+: veřejná metoda {\ttfamily Pocet\+Prvku} pro zjištění prvků ve {\bfseries fronte}, která nebude mít parametry. Metody pro vložení a vyzvednutí prvku dle funkce {\bfseries fronty}.
+
+Public methods\+:
+\begin{DoxyItemize}
+\item {\ttfamily Usage()}, která vrátí {\ttfamily double} hodnotu \mbox{[}v procentech\mbox{]} reprezentující efektivnost využití paměti při použití lineárního seznamu prvků {\ttfamily C\+Value(\+T\+Item)} v poměru k reprezentaci kontejneru pomocí standardního C pole stejného počtu prvků jako je typ zapouzdřený ve třídě {\ttfamily C\+Value} \mbox{[}implementovať bude xmagat01\mbox{]}
+\item En\+Queue() -\/ vloží prvok do fronty na koniec \mbox{[}implementovať bude xmagat01\mbox{]}
+\item De\+Queue() -\/ odstráni prvý prvok fronty \mbox{[}implementovať bude xmagat01\mbox{]}
+\item Front() -\/ vráti kópiu/referenciu prvého prvku \mbox{[}implementovať bude xlevri01\mbox{]}
+\item Back() -\/ vráti kópiu/referenciu posledného prvku \mbox{[}implementovať bude xlevri01\mbox{]}
+\item Length() -\/ vráti počet prvkov vo fronte \mbox{[}implementovať bude xlevri01\mbox{]}
+\item is\+Empty() -\/ vráti true/false podľa toho či je prázdna \mbox{[}implementovať bude xlevri01\mbox{]}
+\item Clear() -\/ vymaže všetky prvky vo fronte \mbox{[}implementovať bude xmagat01\mbox{]}
+\end{DoxyItemize}
+
+Private methods\+:
+\begin{DoxyItemize}
+\item {\ttfamily Compare} -\/ porovná \char`\"{}velikost\char`\"{} dvou kontejnerů, kde velikost je dána počtem prvků, a vrátí hodnotu -\/1,0 nebo 1 (první je kratší, stejné, první je delší). \mbox{[}implementovať bude xkunaj01\mbox{]}
+\item {\ttfamily Compare\+Deep} -\/ porovná velikost kontejnerů i podle hodnot {\ttfamily C\+Value}. \mbox{[}implementovať bude xkunaj01\mbox{]} Výsledky těchto metod budou ke své činnosti používat logické operátory kontejneru. \begin{DoxyNote}{Note}
+Pro privátní metody jsou nejvýhodnější funkce typu „uprav“, „přepočítej“, „zkontroluj“. Celkem tedy – minimálně 2ks privátní a 4ks veřejné. 
+
+U každé z metod definujte nejen její název, ale uveďte i informaci, co bude jejím úkolem z hlediska funkce {\bfseries fronty} (tj. textově popište její funkci popř. smysl).
+\end{DoxyNote}
+
+\end{DoxyItemize}
+\item Budou realizovány metody, pro reverzaci (reverzace je {\bfseries např. otočení pořadí prvků kontejneru} )\+:
+\begin{DoxyItemize}
+\item umožňující volání {\ttfamily bbb=aaa.\+Reverzuj()}, která mění {\bfseries frontu} {\ttfamily aaa} na {\bfseries reverzovanú frontu} {\ttfamily bbb}, \mbox{[}implementovať bude xkunaj01\mbox{]}
+\item umožňující volání {\ttfamily bbb=Reverzuj(aaa)}, která nechává {\bfseries frontu} {\ttfamily aaa} nezměněnú a vrací (temp objekt) {\bfseries reverzovaný frontu} {\ttfamily bbb}. \mbox{[}implementovať bude xkunaj01\mbox{]}
+\end{DoxyItemize}
+\item Použití dynamických dat ve třídě – {\bfseries A\+NO}.
+\item Dědění {\bfseries NE} ve třídě ... .
+\item Použití výjimek -\/ {\bfseries Á\+NO}.
+\item Ve vlastním projektu se předpokládá i implementace metod vytvářených překladačem implicitně.
+\item Ve třídě bude pro kontrolu korektní práce s pamětí implementována knihovna \href{http://www.uamt.feec.vutbr.cz/~petyovsky/projects/checker/checker.zip}{\tt Checker}.
+\end{DoxyEnumerate}
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000004}{Todo}]testy??? 14. Pro každou implementovanou metodu navrhněte alespoň 3 case testy. \end{DoxyRefDesc}
+
+
+~\newline
+~\newline
+\subsubsection*{Poznámky k řešení (jsou součástí zadání)\+:}
+
+Odvozené třídy {\ttfamily C\+Value\+\_\+\+N\+A\+Z\+E\+V\+\_\+\+T\+Y\+PU} vypracujte v projektu C\+Value, kde je ve funkci {\ttfamily main} demonstrována činnost {\ttfamily \hyperlink{namespace_c_value__bool}{C\+Value\+\_\+bool}}. Po odladění je použijte ve vlastním projektu testování {\ttfamily \hyperlink{class_c_hash_map}{C\+Hash\+Map}} a tvorbě {\bfseries fronty}, kde vytvořte v {\ttfamily main} podobný testovací kód (pro třídu fronty) jako je ukázáno v projektu s C\+Value. Projekty C\+Value a \hyperlink{class_c_hash_map}{C\+Hash\+Map} chápejte jako ukázkové projekty, které demonstrují principy práce s C\+Value, a s Hash\+Map seznamy a všemi dodanými třídami. Věřím, že pro Vás bude cennou studnicí vědomostí a zároveň vhodným testovacím {\itshape pískovištěm} k pokusům a experimentům. Proto si jeho činnost prostudujte a snažte se ho pochopit do co nejmenších detailů. Pokud Vám tento testovací projekt přestane fungovat, obnovte poslední fungující verzi z repozitáře a zkuste to znovu. ;-\/) {\itshape Aneb kdo nic nerozbije, ten se nic nenaučí.}
+
+Vytvořená implementace {\bfseries fronty} bude využívat vlastnosti třídy {\ttfamily C\+Value} a musí umožňovat bezchybný překlad s libovolnou třídou {\ttfamily C\+Value} (zapouzdřující některý z jednoduchých datových typů) bez nutnosti zásahu do zdrojových textů {\bfseries fronty}!!!! Implementace fronty tedy nebude závislá na typu ukládaných hodnot, protože bude využívat pouze definované rozhraní třídy {\ttfamily C\+Value} (společné pro všechny typy), tak jak je uvedeno v testovacím příkladu. {\bfseries \hyperlink{class_c_fronta}{C\+Fronta}} proto implementujte tak, aby přímo nevyužíval (nevolal) Setter ani Getter metody třídy {\ttfamily C\+Value}, jejichž hlavička je na zapouzdřujícím typu závislá!!! Celá hierarchie souboru projektu je patrná na následujícím obrázku. {\itshape Nezapomeňte v obrázku upravit názvy tučně označených souborů.} 
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_project_hierarchy}
+\doxyfigcaption{Obr.1 -\/ Nákres hierarchie souboru v projektu}
+\end{DoxyImage}
+~\newline
+ Vlastní realizace třídy pro {\bfseries kontejner} bude rozdělena na hlavičkový a zdrojový soubor ({\bfseries \hyperlink{_c_fronta_8h}{C\+Fronta.\+h}}, {\bfseries \hyperlink{_c_fronta_8cpp}{C\+Fronta.\+cpp}}). Další zdrojový soubor (\hyperlink{main_8cpp}{main.\+cpp}) bude reprezentovat program demonstrující vlastnosti a použití definované třídy {\bfseries \hyperlink{class_c_fronta}{C\+Fronta}}. Všechny zdrojové a hlavičkové soubory budou obsahovat úvodní poznámku o svém názvu, řešitelích...).
+
+Demonstrační program bude realizován jako konzolová aplikace přeložitelná ve Visual C++ (prázdný projekt, přísnost (stupeň) překladu 3 na detekci chybových a varovných hlášení). Snažte se, aby demonstrační program byl napsán tak, aby při činnosti nevyžadoval zásahy obsluhy ani vstupní data z jiných speciálních souborů (s výjimkou operátoru pro standardní vstup). Demonstrační/testovací programu bude inicializovat proměnné (v něm definovanými daty nezadávanými uživatelem) a na jejich základě bude demonstrovat činnost třídy a dále zobrazovat data na konzolu, nebo ukládat výsledky do souboru. \hyperlink{doc}{Dokumentaci} výsledného projektu realizujte pomocí nástroje \href{http://www.doxygen.org}{\tt Doxygen}.
+
+K tomuto odevzdávanému zadání nezapomeňte připsat úvod pro hlavičku (tj. jména řešitelů, název projektu, datum zadání ... budou součástí odevzdávaného souboru)
+
+Na následujícím odkazu najdete \href{https://my.mindnode.com/s2Bbn2gFS8pHZFGcZJhRj4U7zmxx8ivygkoPCuZz}{\tt Myšlenkovou mapu k projektu}, kterou jsme tvořili během přednášky věnované projektu. Pro lepší orientaci uvádíme krátkou motivaci k pojmu třída na odkazu\+: \href{http://www.uamt.feec.vutbr.cz/~richter/vyuka/XPPC/bppc/cviceni/motivace_trida.html}{\tt Motivace třída}.
+
+Pokud Vás trápí nastavení \href{https://en.wikipedia.org/wiki/Test-driven_development}{\tt Unit testů} ve V\+S2017 zkuste si projít \href{http://www.evernote.com/l/AElAKsn_ps1ONbQRPVcvgmGPXcK76B0P0qs/}{\tt tento postup}. ~\newline
+~\newline
+Poslední změna\+: \begin{DoxyParagraph}{Date}
+2017-\/12-\/21
+\end{DoxyParagraph}
+
+
+\begin{DoxyParagraph}{Id}
+\hyperlink{_introduction_8md}{Introduction.\+md} 2359 2017-\/12-\/21 19\+:09\+:33Z xlevri01 
+\end{DoxyParagraph}

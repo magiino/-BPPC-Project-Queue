@@ -1,0 +1,21 @@
+// GraphViz picture: CPair vizualization, by: Pety 2017
+// $Id: CPair.gv 2 2017-11-06 10:01:25Z petyovsky $
+
+digraph CHashMapPrimitive
+	{
+	rankdir = "LR";
+	node
+		[
+		shape = "record",
+		fontname = "Courier",
+		style = "filled"
+		];
+
+	CPair
+		[
+		label = "<Name> CPair | {<Key> iKey | <Value> iValue}",
+		tooltip = "Pair with key and value",
+		URL = "\ref CPair"
+		];
+
+	}

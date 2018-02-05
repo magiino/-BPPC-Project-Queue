@@ -1,0 +1,77 @@
+\hypertarget{namespace_c_value___t_student}{}\section{C\+Value\+\_\+\+T\+Student Namespace Reference}
+\label{namespace_c_value___t_student}\index{C\+Value\+\_\+\+T\+Student@{C\+Value\+\_\+\+T\+Student}}
+
+
+Namespace for encapsulating of {\ttfamily \hyperlink{struct_c_value___t_student_1_1_t_student}{T\+Student}} variant of \hyperlink{class_c_value___t_student_1_1_c_value}{C\+Value} class.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_c_value___t_student_1_1_c_value}{C\+Value}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_c_value___t_student_1_1_c_value}{C\+Value} class ({\ttfamily \hyperlink{struct_c_value___t_student_1_1_t_student}{T\+Student}} variant) \end{DoxyCompactList}\item 
+struct \hyperlink{struct_c_value___t_student_1_1_t_student}{T\+Student}
+\begin{DoxyCompactList}\small\item\em Basic definition of struct type for representing \hyperlink{struct_c_value___t_student_1_1_t_student}{T\+Student}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{namespace_c_value___t_student_a74d67e5f2ecbfee96605b87464c628ca}{operator$<$$<$} (std\+::ostream \&a\+O\+Stream, const \hyperlink{struct_c_value___t_student_1_1_t_student}{T\+Student} \&a\+Student)
+\begin{DoxyCompactList}\small\item\em Output to the stream operator. ({\itshape serialization}) \end{DoxyCompactList}\item 
+std\+::istream \& \hyperlink{namespace_c_value___t_student_a7cef4a5db96e988bb59a53168f90363f}{operator$>$$>$} (std\+::istream \&a\+I\+Stream, \hyperlink{struct_c_value___t_student_1_1_t_student}{T\+Student} \&a\+Student)
+\begin{DoxyCompactList}\small\item\em Input from the stream operator. ({\itshape deserialization}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Namespace for encapsulating of {\ttfamily \hyperlink{struct_c_value___t_student_1_1_t_student}{T\+Student}} variant of \hyperlink{class_c_value___t_student_1_1_c_value}{C\+Value} class. 
+
+For selecting this variant of \hyperlink{class_c_value___t_student_1_1_c_value}{C\+Value} class uncomment {\ttfamily using} {\ttfamily namespace} section in the \hyperlink{_c_value_8h}{C\+Value.\+h} 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespace_c_value___t_student_a74d67e5f2ecbfee96605b87464c628ca}\label{namespace_c_value___t_student_a74d67e5f2ecbfee96605b87464c628ca}} 
+\index{C\+Value\+\_\+\+T\+Student@{C\+Value\+\_\+\+T\+Student}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!C\+Value\+\_\+\+T\+Student@{C\+Value\+\_\+\+T\+Student}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& C\+Value\+\_\+\+T\+Student\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{a\+O\+Stream,  }\item[{const \hyperlink{struct_c_value___t_student_1_1_t_student}{T\+Student} \&}]{a\+Student }\end{DoxyParamCaption})}
+
+
+
+Output to the stream operator. ({\itshape serialization}) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a\+O\+Stream} & Output stream \\
+\hline
+\mbox{\tt in}  & {\em a\+Student} & Serialized instantion of \hyperlink{struct_c_value___t_student_1_1_t_student}{T\+Student} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return {\ttfamily std\+::ostream} with serialized a\+Student 
+\end{DoxyReturn}
+
+
+Definition at line 13 of file C\+Value\+\_\+\+T\+Student.\+cpp.
+
+\mbox{\Hypertarget{namespace_c_value___t_student_a7cef4a5db96e988bb59a53168f90363f}\label{namespace_c_value___t_student_a7cef4a5db96e988bb59a53168f90363f}} 
+\index{C\+Value\+\_\+\+T\+Student@{C\+Value\+\_\+\+T\+Student}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!C\+Value\+\_\+\+T\+Student@{C\+Value\+\_\+\+T\+Student}}
+\subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream \& C\+Value\+\_\+\+T\+Student\+::operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{a\+I\+Stream,  }\item[{\hyperlink{struct_c_value___t_student_1_1_t_student}{T\+Student} \&}]{a\+Student }\end{DoxyParamCaption})}
+
+
+
+Input from the stream operator. ({\itshape deserialization}) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a\+I\+Stream} & Input stream \\
+\hline
+\mbox{\tt out}  & {\em a\+Student} & Place for deserialized instantion of \hyperlink{struct_c_value___t_student_1_1_t_student}{T\+Student} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return rest of {\ttfamily std\+::istream} 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file C\+Value\+\_\+\+T\+Student.\+cpp.
+

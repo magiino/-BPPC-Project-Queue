@@ -1,0 +1,67 @@
+\subsection*{Teoretický popis\+: Termín datový kontejner}
+
+Termín kontejner představuje v oblasti návrhu datových struktur a algoritmů takový datový typ, který umožňuje za běhu programu sdružovat více prvků (stejného nebo i různého typu) do jedné společné složené datové struktury. Výhody spojené s používáním kontejneru lze najít například v jednoduchém předání všech prvků takového kontejneru do funkce pomocí jediného argumentu (typu kontejner), nebo pro předání více hodnot z funkce, kde návratovou hodnotou je opět jediná hodnota (typu kontejner). Hlavní výhodou je ovšem možnost provedení operace nad všemi prvky kontejneru pomocí zápisu jediného volání služby, kterou zajistí přímo daný kontejner v rámci svého A\+PI. Mezi takové služby může patřit dealokace paměti všech prvků v kontejneru, vytisknutí všech prvků v kontejneru a další operace spojené se správou prvků v kontejneru. Prvky vkládané do Vašeho budoucího datového kontejneru budou právě instance třídy {\ttfamily C\+Value}. Ale i na samotnou třídu {\ttfamily C\+Value} lze pohlížet jako na primitivní kontejner mající jedinou hodnotu.
+
+\subsubsection*{Třída C\+Value}
+
+Třída {\ttfamily C\+Value} obsahuje prvek (nebo prvky) mající hodnotu kterou jako třída zapouzdřuje ({\ttfamily bool}, {\ttfamily T\+Week\+Day}, {\bfseries long}, {\bfseries T\+Student}) {\itshape Nahraďte tučně označenou část zadanými typy!}
+
+Úlohou třídy {\ttfamily C\+Value} je v definici mít složku {\ttfamily i\+Value}, jenž představuje užitečná data, která bude každý prvek seznamu obsahovat. Dále je třeba vhodně upravit (případně doplnit) metody určené pro konstrukci a likvidaci prvku tak, aby bylo možné nový prvek efektivně konstruovat a využívat. Třída {\ttfamily C\+Value} je navíc správcem své vlastní hodnoty {\ttfamily i\+Value} a proto definuje základní metody pro zjištění, nastavení této hodnoty a zároveň zajišťuje pro nadřazené vyšší části programu metody pro porovnání dvou prvků {\ttfamily C\+Value} dle této hodnoty, čímž izoluje nadřazené části od nutnosti znát konkrétní datový typ složky {\ttfamily i\+Value}.
+
+\subsubsection*{Jmenné prostory C\+Value\+\_\+xxxx (\hyperlink{class_c_value__bool_1_1_c_value}{C\+Value\+\_\+bool\+::\+C\+Value}, \hyperlink{class_c_value___t_week_day_1_1_c_value}{C\+Value\+\_\+\+T\+Week\+Day\+::\+C\+Value})}
+
+Návrh programu i Vaše zadání požaduje nezávislost na vnitřní implementaci třídy {\ttfamily C\+Value} (konkrétním datovém typu složky {\ttfamily i\+Value}). Návrh navíc umožňuje, aby uživatel mohl odkomentováním řádku přepínat mezi vnitřními implementacemi {\ttfamily C\+Value}. Tento mechanismus je zajištěn pomocí definice každé z variant {\ttfamily C\+Value} ve vlastním jmenném prostoru {\ttfamily C\+Value\+\_\+\+N\+A\+Z\+E\+V\+\_\+\+T\+Y\+PU}. Díky této skutečnosti může existovat v programu několik stejně pojmenovaných tříd {\ttfamily C\+Value}, neboť názvy existují ve svém vlastním oboru viditelnosti (jmenném prostoru).
+
+Volba dané varianty {\ttfamily C\+Value} je potom prováděna v souboru \hyperlink{_c_value_8h}{C\+Value.\+h}, odkomentovaním toho řádku, který exportuje daný jmenný prostor do globálního prostoru jmen. 
+\begin{DoxyCode}
+\textcolor{keyword}{using namespace }\hyperlink{namespace_c_value__bool}{CValue\_bool};
+\textcolor{comment}{//using namespace CValue\_TWeekDay;}
+\textcolor{comment}{//using namespace CValue\_char;}
+\textcolor{comment}{//using namespace CValue\_int;}
+\textcolor{comment}{//using namespace CValue\_float;}
+\textcolor{comment}{//using namespace CValue\_long\_double;}
+\end{DoxyCode}
+
+
+~\newline
+\subsection*{Realizace dalších variant tříd C\+Value}
+
+V současnosti projekt obsahuje tyto varianty tříd {\ttfamily C\+Value}, z nichž je každá definována ve svém jmenném prostoru\+: \begin{DoxyItemize}
+\item \hyperlink{class_c_value__bool_1_1_c_value}{C\+Value\+\_\+bool\+::\+C\+Value} \item \hyperlink{class_c_value___t_week_day_1_1_c_value}{C\+Value\+\_\+\+T\+Week\+Day\+::\+C\+Value}\end{DoxyItemize}
+{\bfseries Tyto dvě třídy jsou pevně zadány a je zakázáno modifikovat jejich zdrojové texty!} Pro každou další variantu {\ttfamily C\+Value} nadefinujte nový jmenný prostor {\ttfamily C\+Value\+\_\+\+N\+A\+Z\+E\+V\+\_\+\+T\+Y\+PU} a v něm implementujte novou variantu třídy {\ttfamily C\+Value}. \begin{DoxyNote}{Note}
+Mechanismus by samozřejmě bylo možné realizovat i zcela automaticky (překladač sám dle potřeby programátora vygeneruje novou variantu třídy {\ttfamily C\+Value} pomocí definované šablony, případně bude umožnovat dynamickou identifikaci typu a tím umožní mít při běhu programu v jednom seznamu různé varianty prvků {\ttfamily C\+Value}. Obě tyto techniky ovšem svým rozsahem vybočují nad rámec výuky v tomto kurzu a proto jsme se rozhodli se jim v tomto projektu vyhnout.
+\end{DoxyNote}
+~\newline
+\subsection*{Testovací hlavní program}
+
+Hlavní program v souboru \hyperlink{main_8cpp}{main.\+cpp} představuje základní sadu testů, které ověřují správnou funkci libovolné varianty třídy {\ttfamily C\+Value}. Seznamte se s obsahem hlavního programu a trasujte si jednotlivá volání.
+
+\subsubsection*{Testovací hodnoty}
+
+Každá z implementací třídy {\ttfamily C\+Value} navíc obsahuje šest základních metod vracející hodnotu datového typu, který je vhodný pro vložení do složky {\ttfamily i\+Value}. Projděte si uvedené mechanismy a snažte se pochopit jejich vliv na nezávislost kódu hlavního programu.
+
+Jedná se o tyto metody\+: \begin{DoxyItemize}
+\item {\ttfamily Test\+Value0()} (např. \hyperlink{class_c_value__bool_1_1_c_value_a6a39f590a87bb4be8f707c032ca2b32b}{C\+Value\+\_\+bool\+::\+C\+Value\+::\+Test\+Value0()}) \item {\ttfamily Test\+String\+Value0()} (např. \hyperlink{class_c_value__bool_1_1_c_value_ae327d8276f5f4c75705c7413d5942ea0}{C\+Value\+\_\+bool\+::\+C\+Value\+::\+Test\+String\+Value0}) \item {\ttfamily Test\+Value1()} (např. \hyperlink{class_c_value__bool_1_1_c_value_a73b53a394f0b2ebeebeecad0610949b8}{C\+Value\+\_\+bool\+::\+C\+Value\+::\+Test\+Value1}) \item {\ttfamily Test\+String\+Value1()} (např. \hyperlink{class_c_value__bool_1_1_c_value_a2d82d7f212af01b330e3bc3514961a5a}{C\+Value\+\_\+bool\+::\+C\+Value\+::\+Test\+String\+Value1}) \item {\ttfamily Test\+Value\+Random()} (např. \hyperlink{class_c_value__bool_1_1_c_value_a5583585b33adfb3b27d9b49ad1a7cc3a}{C\+Value\+\_\+bool\+::\+C\+Value\+::\+Test\+Value\+Random}) \item {\ttfamily Test\+String\+Random()} (např. \hyperlink{class_c_value__bool_1_1_c_value_a84d39c7918bfb7876640a8b64e2e8c95}{C\+Value\+\_\+bool\+::\+C\+Value\+::\+Test\+String\+Value\+Random})\end{DoxyItemize}
+\subsubsection*{Další kontrolní vlastnosti prvku}
+
+Třída C\+Value obsahuje několik kontrolních a ladicích mechanismů, které budete jistě chtít využívat.
+
+\begin{DoxyItemize}
+\item Členskou proměnnou {\ttfamily i\+Instance} typu {\ttfamily Class\+Info} obsahující počítadlo vzniklých instancí (viz dále). \item Pokud budete v metodách třídy C\+Value dynamicky alokovat pamět nezapomeňte na kontroly dealokace paměti pomocí knihovny check. \item Pokud je prováděn překlad v {\itshape Debug režimu} je při každém spuštění zajištěna identická inicializace generátoru náhodných čísel. Tím při každém krokování programu bude generován pro stejná vstupní data identický seznam (výsledný kontejner bude obsahovat prvky se stejnými hodnotami pro každé spuštění). Až si budete jisti, že program je funkční, zkuste přepnout překlad do {\itshape Release režimu} a ověřit správnou funkci celého kontejneru při různých počátečních podmínkách generátoru náhodných čísel.\end{DoxyItemize}
+\subsubsection*{Třída Class\+Info}
+
+Třída Class\+Info implementuje mechanismus automatického počítání vzniklých objektů a mechanismus jednoznačné identifikace Class\+Info$<$$>$\+::\+ID \char`\"{}\+I\+D\char`\"{} instancí za běhu programu. Tento mechanismus se Vám bude hodit při ladění programu. Všechny Vaše třídy by měly obsahovat datovou složku \hyperlink{class_c_value__bool_1_1_c_value_a5e9470a5efc80373b5cc943f25d1a803}{i\+Instance\+Info} třídy Class\+Info, čímž zajistíte Vašim třídám tyto ladicí vlastnosti. Samotná třída Class\+Info je definována jako šablona umožňující, vznik různých variant této třídy -\/ (generické programování resp. metaprogramování).
+
+Mezi ladicí metody třídy Class\+Info patří\+: \begin{DoxyItemize}
+\item Class\+Info$<$\+T$>$\+::\+Total() -\/ počítadlo vzniklých instancí třídy T \item Class\+Info$<$\+T$>$\+::\+Living() -\/ počítadlo v daném okamžiku existujících instancí třídy T \item Class\+Info$<$\+T$>$\+::\+I\+D() resp. \hyperlink{class_c_value__bool_1_1_c_value_a028335ed71781b92b96dfb51e1118eda}{C\+Value\+:\+:ID()} -\/ unikátní číselné označení dané instance\end{DoxyItemize}
+\begin{DoxyAttention}{Attention}
+Projděte si všechny uvedené kontrolní i ladicí mechanismy, snažte se pochopit jejich smysl a využití při trasování programu. Získané vědomosti se Vám budou rozhodně hodit, například když se nějaká část Vašeho programu začne chovat \char`\"{}podezřele\char`\"{} či přímo \char`\"{}nepřátelsky\char`\"{}.
+\end{DoxyAttention}
+\begin{DoxyNote}{Note}
+Hodně štěstí při realizaci Vašeho projektu. Nebojte se, ono to půjde. Hlavně {\itshape nepropadejte panice!} ;-\/)
+\end{DoxyNote}
+Pety.
+
+\begin{DoxyParagraph}{Id}
+\hyperlink{_documentation_8md}{Documentation.\+md} 1 2017-\/11-\/06 09\+:45\+:38Z petyovsky 
+\end{DoxyParagraph}
