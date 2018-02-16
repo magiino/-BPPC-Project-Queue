@@ -1,7 +1,0 @@
-<map id="CHashMap::CForwardIterator" name="CHashMap::CForwardIterator">
-<area shape="rect" id="node2" href="$struct_c_hash_map_1_1_t_bucket.html" title="TBucket structure definition. " alt="" coords="133,1079,276,1156"/>
-<area shape="rect" id="node3" href="$struct_c_hash_map_1_1_t_item.html" title="TItem structure definiton. " alt="" coords="33,909,160,1001"/>
-<area shape="rect" id="node4" href="$class_c_pair.html" title="CPair class (key and value) " alt="" coords="45,652,148,847"/>
-<area shape="rect" id="node5" href="$class_c_value___t_student_1_1_c_value.html" title="CValue class (TStudent variant) " alt="" coords="5,233,188,589"/>
-<area shape="rect" id="node6" href="$struct_c_value___t_student_1_1_t_student.html" title="Basic definition of struct type for representing TStudent. " alt="" coords="5,5,188,171"/>
-</map>

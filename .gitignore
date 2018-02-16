@@ -320,3 +320,41 @@ ASALocalRun/
 
 # MSBuild Binary and Structured Log
 *.binlog
+
+## DOXYGEN
+[Hh]tml/
+[Ll]atex/
+*.aux
+*.glo
+*.idx
+*.log
+*.toc
+*.ist
+*.acn
+*.acr
+*.alg
+*.bbl
+*.blg
+*.dvi
+*.glg
+*.gls
+*.ilg
+*.ind
+*.lof
+*.lot
+*.maf
+*.mtc
+*.mtc1
+*.out
+*.synctex.gz
+*.tex
+*.sty
+
+*.html
+*.pdf
+*.css
+*.png
+
+*.map
+*.bat
+*.md5
